@@ -133,7 +133,12 @@ WHERE r.id_recette NOT IN (
 	WHERE ri.id_recette = r.id_recette
 );
 18-
-
+SELECT i.nomIngredient,r.nom
+FROM ingredient i 
+INNER JOIN recette_ingredient ri ON ri.id_ingredient= i.id_ingredient
+INNER JOIN recette r ON r.id_recette = ri.id_recette
+GROUP BY i.nomIngredient,r.nom
+HAVING sum(i.nomIngredient)
 19-
 
 20-
