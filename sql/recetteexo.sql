@@ -93,7 +93,7 @@ SELECT nom
 16-
 SELECT r.nom, r.preparation_time
 FROM recette r
-WHERE  MIN(r2.preparation_time)
+WHERE  MIN(preparation_time)
   
 17-
 
