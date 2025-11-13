@@ -154,3 +154,10 @@ WHERE r.id_recipe = 3
 
 
 20-
+SELECT r.nom, SUM(i.prix) AS prix
+FROM recette r
+INNER JOIN recette_ingredient ri ON ri.id_recette= r.id_recette
+INNER JOIN ingredient i ON ri.id_ingredient = i.id_ingredient
+GROUP BY r.id_recette
+HAVING SUM(i.prix)
+LIMIT MAX(i.prix)
