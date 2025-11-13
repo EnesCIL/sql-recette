@@ -150,7 +150,7 @@ SELECT nom r, nomIngredient i
 FROM recette r
 INNER JOIN recette_ingredient ri ON r.id_recette = ri.id_recette
 INNER JOIN ingredient i ON ri.id_ingredient = i.id_ingredient
-WHERE r.id_recipe = 3;
+WHERE r.id_recipe = 3
 
 
 20-
