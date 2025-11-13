@@ -137,8 +137,20 @@ SELECT i.nomIngredient,r.nom
 FROM ingredient i 
 INNER JOIN recette_ingredient ri ON ri.id_ingredient= i.id_ingredient
 INNER JOIN recette r ON r.id_recette = ri.id_recette
-GROUP BY i.nomIngredient,r.nom
-HAVING sum(i.nomIngredient)
+GROUP BY i.id_ingredient
+HAVING COUNT(ri.id_recette) >=3
+
 19-
+INSERT INTO ingredient(nomIngredient, prix, uniteMesure)
+VALUE ("framboise", 3 , "Litre");
+INSERT INTO recipe_ingredients(id_recette, id_ingredient, quantite)
+VALUE (3, 12, 4);
+
+SELECT nom r, nomIngredient i
+FROM recette r
+INNER JOIN recette_ingredient ri ON r.id_recette = ri.id_recette
+INNER JOIN ingredient i ON ri.id_ingredient = i.id_ingredient
+WHERE r.id_recipe = 3;
+
 
 20-
